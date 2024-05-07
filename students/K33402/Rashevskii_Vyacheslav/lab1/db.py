@@ -3,10 +3,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv('.env')
-db_url = os.getenv('DB_ADMIN')
-print('\n\n')
+db_url = os.getenv('DB_URL')
 print(db_url)
-print('\n\n')
 engine = create_engine(db_url, echo=True)
 
 

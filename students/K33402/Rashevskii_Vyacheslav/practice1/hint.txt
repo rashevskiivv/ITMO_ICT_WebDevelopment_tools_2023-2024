@@ -3,7 +3,7 @@
     # сразу есть документация: localhost:8000/docs
 uvicorn main:app --reload --port 8000
     # команду ниже запустить как администратор
-pip install fastapi sqlmodel psycopg2-binary python-dotenv alembic mkdocs-material
+pip install fastapi sqlmodel psycopg2-binary python-dotenv alembic
     # запустить postgresql и создать БД warriors_db
 alembic init migrations
     # В файле alembic.ini переменной sqlalchemy.url необходимо указать адрес БД
