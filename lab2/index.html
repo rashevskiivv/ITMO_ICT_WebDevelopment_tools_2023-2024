@@ -52,7 +52,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">№2: Реализация серверного приложения FastAPI.</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">№2: Потоки. Процессы. Асинхронность.</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -152,7 +152,7 @@ if __name__ == &quot;__main__&quot;:
     print(f&quot;Result of execution 'async': {result}&quot;)
     print(f&quot;Time of execution 'async': {time} seconds&quot;)
 </code></pre>
-<p><img alt="async1.png" src="..%2Flab2%2Fsrc%2Fasync1.png" /></p>
+<p><img alt="async1.png" src="../src/async1.png" /></p>
 <h3 id="multiprocessing1py">multiprocessing1.py</h3>
 <p>Создаем нужное количество процессов и делим 1_000_000 на количество процессов. Каждый процесс имеет свои ресурсы, в отличие от потоков - нужно создать общий объект Queue, который хранит все суммы. 
 Процесс выполнит функцию, которая суммирует все точки данного отрезка и результат добавит в очередь.
@@ -197,7 +197,7 @@ if __name__ == &quot;__main__&quot;:
     print(f&quot;Result of execution 'multiprocessing': {result}&quot;)
     print(f&quot;Time of execution 'multiprocessing': {time} seconds&quot;)
 </code></pre>
-<p><img alt="multiprocessing1.png" src="..%2Flab2%2Fsrc%2Fmultiprocessing1.png" /></p>
+<p><img alt="multiprocessing1.png" src="../src/multiprocessing1.png" /></p>
 <h3 id="threading1py">threading1.py</h3>
 <p>Создаем нужное количество потоков и делим 1_000_000 на количество потоков. Каждый поток выполнит функцию, которая суммирует все точки данного отрезка и результат добавит в лист.
 После выполнения всех потоков суммируются результаты и выводится в консоли вместе с временем выполнения.</p>
@@ -237,7 +237,7 @@ if __name__ == &quot;__main__&quot;:
     print(f&quot;Result of execution 'threading': {result}&quot;)
     print(f&quot;Time of execution 'threading': {time} seconds&quot;)
 </code></pre>
-<p><img alt="threading1.png" src="..%2Flab2%2Fsrc%2Fthreading1.png" /></p>
+<p><img alt="threading1.png" src="../src/threading1.png" /></p>
 <h3 id="async2py">async2.py</h3>
 <pre><code class="language-python">import asyncio
 import time
@@ -298,7 +298,7 @@ if __name__ == '__main__':
     end_time = time.time()
     print(f&quot;Time of execution 'async': {end_time - start_time} seconds&quot;)
 </code></pre>
-<p><img alt="async2.png" src="..%2Flab2%2Fsrc%2Fasync2.png" /></p>
+<p><img alt="async2.png" src="../src/async2.png" /></p>
 <h3 id="multiprocessing2py">multiprocessing2.py</h3>
 <pre><code class="language-python">import multiprocessing
 import time
@@ -358,7 +358,7 @@ if __name__ == '__main__':
     end_time = time.time()
     print(f&quot;Time of execution 'multiprocessing': {end_time - start_time} seconds&quot;)
 </code></pre>
-<p><img alt="multiprocessing2.png" src="..%2Flab2%2Fsrc%2Fmultiprocessing2.png" /></p>
+<p><img alt="multiprocessing2.png" src="../src/multiprocessing2.png" /></p>
 <h3 id="threading2py">threading2.py</h3>
 <pre><code class="language-python">import threading
 import time
@@ -419,7 +419,7 @@ if __name__ == '__main__':
     end_time = time.time()
     print(f&quot;Time of execution 'threading': {end_time - start_time} seconds&quot;)
 </code></pre>
-<p><img alt="threading2.png" src="..%2Flab2%2Fsrc%2Fthreading2.png" /></p>
+<p><img alt="threading2.png" src="../src/threading2.png" /></p>
 <h3 id="urlspy">urls.py</h3>
 <pre><code class="language-python">URLs = [
     'https://github.com/TonikX/ITMO_ICT_WebDevelopment_tools_2023-2024/pulls?page=1&amp;q=is%3Apr+is%3Aopen',
@@ -448,7 +448,7 @@ class DB:
         )
         return con
 </code></pre>
-<p><img alt="db_screenshot.png" src="..%2Flab2%2Fsrc%2Fdb_screenshot.png" /></p></div>
+<p><img alt="db_screenshot.png" src="../src/db_screenshot.png" /></p></div>
             </div>
         </div>
 
