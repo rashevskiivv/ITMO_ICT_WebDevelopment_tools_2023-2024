@@ -35,7 +35,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">№1: Реализация серверного приложения FastAPI.</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">№1: Реализация серверного приложения FastAPI.</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -47,12 +47,12 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Leetcode</a>
+    <a href="../leetcode/" class="dropdown-item">Leetcode</a>
 </li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">№2: Потоки. Процессы. Асинхронность.</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">№2: Потоки. Процессы. Асинхронность.</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -60,7 +60,7 @@
 </li>
                                     
 <li>
-    <a href="../leetcode2/" class="dropdown-item">Leetcode</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Leetcode</a>
 </li>
                                 </ul>
                             </li>
@@ -73,12 +73,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../lab/" class="nav-link">
+                                <a rel="prev" href="../lab2/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../lab2/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -102,27 +102,15 @@
             
             <li class="nav-item" data-bs-level="1"><a href="#leetcode" class="nav-link">Leetcode</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#3sum" class="nav-link">3sum</a>
+            <li class="nav-item" data-bs-level="2"><a href="#count-and-say" class="nav-link">Count and Say</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#group-anagrams" class="nav-link">Group Anagrams</a>
+            <li class="nav-item" data-bs-level="2"><a href="#add-two-numbers" class="nav-link">Add Two Numbers</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#longest-substring-without-repeating-characters" class="nav-link">Longest Substring Without Repeating Characters</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#longest-palindromic-substring" class="nav-link">Longest Palindromic Substring</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#increasing-triplet-subsequence" class="nav-link">Increasing Triplet Subsequence</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#set-matrix-zeroes" class="nav-link">Set Matrix Zeroes</a>
+            <li class="nav-item" data-bs-level="2"><a href="#odd-even-linked-list" class="nav-link">Odd Even Linked List</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -134,141 +122,89 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="leetcode">Leetcode</h1>
-<p>24.03.2024 - 07.05.2024 = 6 weeks
-<img alt="leetcode.png" src="../src/leetcode.png" /></p>
-<h2 id="3sum">3sum</h2>
+<p>13.05.2024 - 24.05.2024 = 2 weeks
+1 more for extra point</p>
+<h2 id="count-and-say">Count and Say</h2>
 <pre><code class="language-python">class Solution:
-    def threeSum(self, nums: List[int]) -&gt; List[List[int]]:
-        res = set()
-        n, p, z = [], [], []
-        for num in nums:
-            if num &gt; 0:
-                p.append(num)
-            elif num &lt; 0: 
-                n.append(num)
-            else:
-                z.append(num)
-        N, P = set(n), set(p)
-        if z:
-            for num in P:
-                if -1*num in N:
-                    res.add((-1*num, 0, num))
-        if len(z) &gt;= 3:
-            res.add((0,0,0))
-        for i in range(len(n)):
-            for j in range(i+1,len(n)):
-                target = -1*(n[i]+n[j])
-                if target in P:
-                    res.add(tuple(sorted([n[i],n[j],target])))
-        for i in range(len(p)):
-            for j in range(i+1,len(p)):
-                target = -1*(p[i]+p[j])
-                if target in N:
-                    res.add(tuple(sorted([p[i],p[j],target])))
-
-        return res
-</code></pre>
-<h2 id="group-anagrams">Group Anagrams</h2>
-<pre><code class="language-python">class Solution:
-    def groupAnagrams(self, strs: List[str]) -&gt; List[List[str]]:
-        result = []
-        sorted_s = {}
-        i = 0
-        for s in strs:
-            if not result:
-                sorted_s[''.join(sorted(s))] = i
-                i += 1
-                result.append([s])
-                continue
-            for j in range(len(result)):
-                if (''.join(sorted(s))) in sorted_s:
-                    result[sorted_s[''.join(sorted(s))]].append(s)
+    def countAndSay(self, n: int) -&gt; str:
+        def count_til_diff(s: str):
+            res = ''
+            i = 0
+            temp = ''
+            while i &lt; len(s):
+                count = 1
+                check = s[i]
+                if (check == temp):
                     break
-                else:
-                    sorted_s[''.join(sorted(s))] = i
-                    i += 1
-                    result.append([s])
-                    break
-        return result
+                temp = check
+                for j in range(i + 1, len(s)):  
+                    if s[j] != check:
+                        i = j
+                        break
+
+                    count += 1
+
+                    if j == len(s) - 1:
+                        i = j
+                        break
+                res += str(count) + check
+            return res
+
+        if n == 1:
+            return '1'
+        return count_til_diff(self.countAndSay(n - 1))
 </code></pre>
-<h2 id="longest-substring-without-repeating-characters">Longest Substring Without Repeating Characters</h2>
-<pre><code class="language-python">class Solution:
-    def lengthOfLongestSubstring(self, s: str) -&gt; int:
-        n = len(s)
-        maxLength = 0
-        charIndex = [-1] * 128
-        left = 0
-
-        for right in range(n):
-            if charIndex[ord(s[right])] &gt;= left:
-                left = charIndex[ord(s[right])] + 1
-            charIndex[ord(s[right])] = right
-            maxLength = max(maxLength, right - left + 1)
-
-        return maxLength
+<h2 id="add-two-numbers">Add Two Numbers</h2>
+<pre><code class="language-python"># Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&gt; Optional[ListNode]:
+        dummy = ListNode()
+        res = dummy
+        total = carry = 0
+        while l1 or l2 or carry:
+            total = carry
+            if l1:
+                total += l1.val
+                l1 = l1.next
+            if l2:
+                total += l2.val
+                l2 = l2.next
+            num = total % 10
+            carry = total // 10
+            dummy.next = ListNode(num)
+            dummy = dummy.next
+        return res.next
 </code></pre>
-<h2 id="longest-palindromic-substring">Longest Palindromic Substring</h2>
-<pre><code class="language-python">class Solution:
-    def longestPalindrome(self, s: str) -&gt; str:
-        if not s:
-            return &quot;&quot;
-
-        def expand_around_center(s: str, left: int, right: int):
-            while left &gt;= 0 and right &lt; len(s) and s[left] == s[right]:
-                left -= 1
-                right += 1
-            return right - left - 1
-
-
-        start = 0
-        end = 0
-
-        for i in range(len(s)):
-            odd = expand_around_center(s, i, i)
-            even = expand_around_center(s, i, i + 1)
-            max_len = max(odd, even)
-
-            if max_len &gt; end - start:
-                start = i - (max_len - 1) // 2
-                end = i + max_len // 2
-
-        return s[start:end+1]
-</code></pre>
-<h2 id="increasing-triplet-subsequence">Increasing Triplet Subsequence</h2>
-<pre><code class="language-python">class Solution:
-    def increasingTriplet(self, nums: List[int]) -&gt; bool:
-        first = second = float('inf') 
-        for n in nums: 
-            if n &lt;= first: 
-                first = n
-            elif n &lt;= second:
-                second = n
+<h2 id="odd-even-linked-list">Odd Even Linked List</h2>
+<pre><code class="language-python"># Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def oddEvenList(self, head: Optional[ListNode]) -&gt; Optional[ListNode]:
+        if head == None or head.next == None : return head 
+        odd = ListNode(0) 
+        odd_ptr = odd
+        even = ListNode(0)
+        even_ptr = even 
+        idx = 1 
+        while head != None :
+            if idx % 2 == 0:
+                even_ptr.next = head
+                even_ptr = even_ptr.next
             else:
-                return True
-        return False
-</code></pre>
-<h2 id="set-matrix-zeroes">Set Matrix Zeroes</h2>
-<pre><code class="language-python">class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -&gt; None:
-        m = len(matrix)
-        n = len(matrix[0])
-        shouldFillFirstRow = 0 in matrix[0]
-        shouldFillFirstCol = 0 in list(zip(*matrix))[0]
-        for i in range(1, m):
-            for j in range(1, n):
-                if matrix[i][j] == 0:
-                    matrix[i][0] = 0
-                    matrix[0][j] = 0
-        for i in range(1, m):
-            for j in range(1, n):
-                if matrix[i][0] == 0 or matrix[0][j] == 0:
-                    matrix[i][j] = 0
-        if shouldFillFirstRow:
-            matrix[0] = [0] * n
-        if shouldFillFirstCol:
-            for row in matrix:
-                row[0] = 0
-
+                odd_ptr.next = head
+                odd_ptr = odd_ptr.next
+            head = head.next
+            idx+=1
+        even_ptr.next = None
+        odd_ptr.next = even.next
+        return odd.next
 </code></pre></div>
             </div>
         </div>

@@ -4,3 +4,6 @@ nav:
       - index.md
       - lab.md
       - leetcode.md
+  - "№2: Потоки. Процессы. Асинхронность.":
+      - lab2.md
+      - leetcode2.md
