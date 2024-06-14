@@ -27,6 +27,7 @@ async def parse_url(item: URL, background_tasks: BackgroundTasks):
     # https://github.com/TonikX/ITMO_ICT_WebDevelopment_tools_2023-2024/pulls?page=1&q=is%3Apr+is%3Aopen
     # redis-cli lrange main-queue 0 1000
 
+
 @app.get("/")
 async def get():
     print("get")

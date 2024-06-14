@@ -1,6 +1,4 @@
 import celery
-import os
-from dotenv import load_dotenv
 
 celery_app = celery.Celery(
     "worker",
